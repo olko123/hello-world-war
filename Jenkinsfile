@@ -24,8 +24,6 @@ pipeline {
             steps {
                 echo 'Deploying...'
                 sshagent(credentials : ['13fd51db-e744-4af6-b5d6-1aef2856a26d']) {
-                    sh 'ssh -o StrictHostKeyChecking=no jenkins@10.0.24.43 uptime'
-                    sh 'ssh -v jenkins@10.0.24.43'
                     sh 'scp **/*.war jenkins@10.0.24.43:/opt/tomcat/webapps/'
                 }
             }
